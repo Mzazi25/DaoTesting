@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.example.daotestingmedium.data.entity.ExchangesEntity.Companion.COIN_ENTITY_ID
 
 
 @Entity(
@@ -12,7 +13,7 @@ import androidx.room.PrimaryKey
         ForeignKey(
             entity = CoinEntity::class,
             parentColumns = ["_id"],
-            childColumns = ["coin_entity_id"],
+            childColumns = [COIN_ENTITY_ID],
             onUpdate = ForeignKey.CASCADE
         )
     ]
@@ -20,6 +21,8 @@ import androidx.room.PrimaryKey
 data class ExchangesEntity(
     @ColumnInfo(name = IS_ACTIVE)
     var active: Boolean,
+    @ColumnInfo(name = COIN_ENTITY_ID)
+    var coinEntityId: Int,
     @ColumnInfo(name = ADJUSTED_RANK)
     var adjustedRank: Int,
     @ColumnInfo(name = API_STATUS)
@@ -52,6 +55,7 @@ data class ExchangesEntity(
         const val TABLE = "exchanges_entity_table"
 
         const val ID = "_id"
+        const val COIN_ENTITY_ID = "coin_entity_id"
         const val IS_ACTIVE = "is_active"
         const val ADJUSTED_RANK = "adjusted_rank"
         const val API_STATUS = "api_status"

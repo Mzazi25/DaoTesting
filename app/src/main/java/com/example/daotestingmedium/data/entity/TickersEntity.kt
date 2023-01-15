@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.example.daotestingmedium.data.entity.TickersEntity.Companion.EXCHANGES_ENTITY_ID
 
 @Entity(
     tableName = TickersEntity.TABLE,
@@ -11,7 +12,7 @@ import androidx.room.PrimaryKey
         ForeignKey(
             entity = ExchangesEntity::class,
             parentColumns = ["_id"],
-            childColumns = ["exchange_entity_id"],
+            childColumns = [EXCHANGES_ENTITY_ID],
             onUpdate = ForeignKey.CASCADE
         )
     ]
@@ -19,6 +20,8 @@ import androidx.room.PrimaryKey
 data class TickersEntity(
     @ColumnInfo(name = BETA_VALUE)
     var betaValue: Double,
+    @ColumnInfo(name = EXCHANGES_ENTITY_ID)
+    var exchangesEntityId: Int,
     @ColumnInfo(name = CIRCULATING_SUPPLY)
     var circulatingSupply: Int,
     @ColumnInfo(name = FIRST_DATA_AT)
@@ -45,6 +48,7 @@ data class TickersEntity(
         const val TABLE = "tickers_entity_table"
 
         const val ID = "_id"
+        const val EXCHANGES_ENTITY_ID = "exchanges_entity_id"
         const val BETA_VALUE = "beta_value"
         const val CIRCULATING_SUPPLY = "circulating_supply"
         const val FIRST_DATA_AT = "first_data_at"
