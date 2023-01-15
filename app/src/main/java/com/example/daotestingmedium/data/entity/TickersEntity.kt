@@ -21,7 +21,7 @@ data class TickersEntity(
     @ColumnInfo(name = BETA_VALUE)
     var betaValue: Double,
     @ColumnInfo(name = EXCHANGES_ENTITY_ID)
-    var exchangesEntityId: Int,
+    var exchangesEntityId: Long,
     @ColumnInfo(name = CIRCULATING_SUPPLY)
     var circulatingSupply: Int,
     @ColumnInfo(name = FIRST_DATA_AT)

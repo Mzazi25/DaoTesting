@@ -22,7 +22,7 @@ data class ExchangesEntity(
     @ColumnInfo(name = IS_ACTIVE)
     var active: Boolean,
     @ColumnInfo(name = COIN_ENTITY_ID)
-    var coinEntityId: Int,
+    var coinEntityId: Long,
     @ColumnInfo(name = ADJUSTED_RANK)
     var adjustedRank: Int,
     @ColumnInfo(name = API_STATUS)
