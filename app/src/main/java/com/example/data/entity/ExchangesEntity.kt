@@ -2,10 +2,21 @@ package com.example.data.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = ExchangesEntity.TABLE)
+@Entity(
+    tableName = ExchangesEntity.TABLE,
+    foreignKeys = [
+        ForeignKey(
+            entity = CoinEntity::class,
+            parentColumns = ["_id"],
+            childColumns = ["coin_entity_id"],
+            onUpdate = ForeignKey.CASCADE
+        )
+    ]
+)
 data class ExchangesEntity(
     @ColumnInfo(name = ExchangesEntity.IS_ACTIVE)
     var active: Boolean,
