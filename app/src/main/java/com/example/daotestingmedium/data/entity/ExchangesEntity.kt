@@ -1,4 +1,4 @@
-package com.example.data.entity
+package com.example.daotestingmedium.data.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -18,7 +18,7 @@ import androidx.room.PrimaryKey
     ]
 )
 data class ExchangesEntity(
-    @ColumnInfo(name = ExchangesEntity.IS_ACTIVE)
+    @ColumnInfo(name = IS_ACTIVE)
     var active: Boolean,
     @ColumnInfo(name = ADJUSTED_RANK)
     var adjustedRank: Int,

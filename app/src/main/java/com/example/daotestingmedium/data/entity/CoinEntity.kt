@@ -1,4 +1,4 @@
-package com.example.data.entity
+package com.example.daotestingmedium.data.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

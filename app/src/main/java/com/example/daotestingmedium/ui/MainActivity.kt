@@ -1,4 +1,4 @@
-package com.example.daotestingmedium
+package com.example.daotestingmedium.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
