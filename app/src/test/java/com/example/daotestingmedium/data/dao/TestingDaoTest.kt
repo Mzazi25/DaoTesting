@@ -57,6 +57,24 @@ class TestingDaoTest {
         Assert.assertEquals(getExchanges.description, FakeFileGenerator.fakeExchanges.description)
     }
 
+    @Test
+    @Throws(Exception::class)
+    fun `insert tickers to app database, assert valid Tickers, querying name`() = runBlocking {
+        //Get Coin Id
+        val coinId = testingDao.insertCoin(FakeFileGenerator.fakeCoins)
+        FakeFileGenerator.fakeCoins.id = coinId
+        val newExchanges = FakeFileGenerator.fakeExchanges.copy(coinEntityId = coinId)
+        //Get Exchanges Id
+        val newExchangesId = testingDao.insertExchanges(newExchanges)
+        newExchanges.id =newExchangesId
+        //Generate new Ticker with the new exchange ID
+        val newTickers = FakeFileGenerator.fakeTickers.copy(exchangesEntityId = newExchangesId)
+        val id = testingDao.insertTickers(newTickers)
+        val getTickersById = testingDao.getTickersById(id)
+
+        Assert.assertEquals(getTickersById.name, FakeFileGenerator.fakeTickers.name)
+    }
+
     @After
     @Throws(IOException::class)
     fun tearDown(){
